@@ -4,7 +4,6 @@ from color import Color  # used for coloring the game grid
 import numpy as np  # fundamental Python module for scientific computing
 import copy
 from point import Point
-from stddraw import pygame
 import os
 # Class used for modelling the game grid
 from tile import Tile
@@ -25,7 +24,7 @@ class GameGrid:
         # set the color used for the empty grid cells (Pink tone)
         self.empty_cell_color = Color(0, 0, 0)
         # set the colors used for the grid lines and the grid boundaries (Pink tones)
-        self.line_color = Colora(255, 182, 193)
+        self.line_color = Color(255, 182, 193)
         self.boundary_color = Color(219, 112, 147)
         # thickness values used for the grid lines and the grid boundaries
         self.line_thickness = 0.002
@@ -41,10 +40,6 @@ class GameGrid:
         # Keeps number of time speed incread
         self.speed_increased_counter = 0
         
-        # Initializes the necessary variables from pygame to play background.
-        pygame.init()
-        pygame.font.init()
-        pygame.mixer.init()
         
     # Method used for displaying the game grid
     def display(self):
@@ -164,14 +159,6 @@ class GameGrid:
     def set_next(self, next_tetromino):
         self.next_tetromino = next_tetromino
         
-    # Plays as many music as an endless number of repetitions in the background
-    def play_sound(self, stopped = False):
-        music = pygame.mixer.music.load(os.path.join('music.mp3'))
-        if not stopped:
-            pygame.mixer.music.play(-1)
-            pygame.mixer.music.set_volume(0.3)
-        else:
-            pygame.mixer.music.pause()
             
     # Displays given information text on the screen
     def display_info(self, txt, count):
