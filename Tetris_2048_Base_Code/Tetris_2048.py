@@ -580,6 +580,7 @@ class Game:
         # find different values of min equivalent labels and sort them in increasing order
         different_labels = set(min_equivalent_labels)
         different_labels_sorted = sorted(different_labels)
+        
         # create an array for storing new (consecutive) values for min equivalent labels
         new_labels = np.zeros(max(min_equivalent_labels) + 1, dtype=int)
         count = 1  # first label value to assign
